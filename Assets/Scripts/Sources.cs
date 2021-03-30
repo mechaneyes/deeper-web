@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Sources : MonoBehaviour
 {
+
+
+
     [SerializeField]
     Transform sourcePrefab = default;
 
@@ -11,14 +14,16 @@ public class Sources : MonoBehaviour
     int resolution = 10;
 
     Transform[] sources;
-    Transform[] connectors;
+    //Transform[] connectors;
 
-    public GameObject connector;
-    public LineRenderer con;
-    //Vector3 singleDrop = Graph.singleDrop;
-    //public VectorVariable singleDrop;
+    private GameObject connector;
+    private LineRenderer con;
+
     [SerializeField]
     private Graph theLine;
+
+
+
 
     void Start()
     {
@@ -41,21 +46,25 @@ public class Sources : MonoBehaviour
             source.SetParent(transform, false);
         }
 
-        //connector = new GameObject();
-        //con = connector.AddComponent<LineRenderer>();
-        //con.startWidth = 0.05f;
-        //con.endWidth = 0.05f;
+        connector = new GameObject();
+        con = connector.AddComponent<LineRenderer>();
+        con.startWidth = 0.01f;
+        con.endWidth = 0.01f;
 
         theLine = FindObjectOfType<Graph>();
     }
+
+
+
+
 
 
     void Update()
     {
         Transform source = sources[1];
         Vector3 position = source.localPosition;
-        //con.SetPosition(0, sources[1].position);
-        //con.SetPosition(1, singleDrop);
+        con.SetPosition(0, sources[1].position);
+        con.SetPosition(1, theLine.singleDrop);
 
         Debug.Log("theLine.singleDrop " + theLine.singleDrop);
     }
