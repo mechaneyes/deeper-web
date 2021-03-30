@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//https://catlikecoding.com/unity/tutorials/basics/building-a-graph/
+// https://catlikecoding.com/unity/tutorials/basics/building-a-graph/
+// https://learn.unity.com/tutorial/introduction-to-scriptable-objects#5cf187b7edbc2a31a3b9b123
+// https://en.wikipedia.org/wiki/The_Raven_(Lou_Reed_album)
 
 
 public class Graph : MonoBehaviour
@@ -38,7 +40,6 @@ public class Graph : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         float time = Time.time;

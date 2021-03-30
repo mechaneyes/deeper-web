@@ -13,8 +13,7 @@ public class Sources : MonoBehaviour
     [SerializeField, Range(10, 100)]
     int resolution = 10;
 
-    Transform[] sources;
-    //Transform[] connectors;
+    public Transform[] sources;
 
     private GameObject connector;
     private LineRenderer con;
@@ -24,9 +23,9 @@ public class Sources : MonoBehaviour
 
 
 
-
-    void Start()
+    private void Awake()
     {
+
         float step = 2f / resolution;
         var position = Vector3.zero;
         var scale = Vector3.one * step;
@@ -42,10 +41,16 @@ public class Sources : MonoBehaviour
             source.localScale = scale;
 
             sources[i] = source;
+            //Debug.Log("sources.sources.sources " + sources[i].localPosition);
 
             source.SetParent(transform, false);
         }
+    }
 
+
+
+    void Start()
+    {
         connector = new GameObject();
         con = connector.AddComponent<LineRenderer>();
         con.startWidth = 0.01f;
@@ -61,11 +66,12 @@ public class Sources : MonoBehaviour
 
     void Update()
     {
-        Transform source = sources[1];
-        Vector3 position = source.localPosition;
-        con.SetPosition(0, sources[1].position);
-        con.SetPosition(1, theLine.singleDrop);
+        //Transform source = sources[6];
+        //Vector3 position = source.localPosition;
 
-        Debug.Log("theLine.singleDrop " + theLine.singleDrop);
+        //con.SetPosition(0, sources[6].position);
+        //con.SetPosition(1, theLine.singleDrop);
+
+        //Debug.Log("theLine.singleDrop " + theLine.singleDrop);
     }
 }
