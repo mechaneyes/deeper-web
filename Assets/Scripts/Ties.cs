@@ -14,10 +14,10 @@ public class Ties : MonoBehaviour
     int resolution = 10;
 
     Transform[] ties;
-    //Transform[] connectors;
+    //Transform[] lines;
 
-    private GameObject connector;
-    private LineRenderer con;
+    private GameObject line;
+    private LineRenderer ln;
 
     [SerializeField]
     private Graph theLine;
@@ -45,10 +45,10 @@ public class Ties : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
             //Transform source = Instantiate(tiePrefab);
-            connector = new GameObject();
-            con = connector.AddComponent<LineRenderer>();
-            con.startWidth = 0.01f;
-            con.endWidth = 0.01f;
+            line = new GameObject();
+            ln = line.AddComponent<LineRenderer>();
+            ln.startWidth = 0.01f;
+            ln.endWidth = 0.01f;
         }
 
 
@@ -80,15 +80,15 @@ public class Ties : MonoBehaviour
             //Transform source = ties[1];
             //Vector3 position = source.localPosition;
 
-            //con.SetPosition(0, sources.sources[0].position);
-            //con.SetPosition(1, theLine.singleDrop);
+            //ln.SetPosition(0, sources.sources[0].position);
+            //ln.SetPosition(1, theLine.singleDrop);
 
             ////singleDrop = t[i].position;
             //Debug.Log("source " + source);
         }
 
         Debug.Log("theLine.singleDrop: " + theLine.singleDrop);
-        con.SetPosition(0, sources.sources[0].position);
-        con.SetPosition(1, theLine.singleDrop);
+        ln.SetPosition(0, sources.sources[0].position);
+        ln.SetPosition(1, theLine.singleDrop);
     }
 }

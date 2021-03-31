@@ -11,12 +11,12 @@ using UnityEngine;
 public class Graph : MonoBehaviour
 {
     [SerializeField]
-    Transform pointPrefab = default;
+    Transform targetPrefab = default;
 
     [SerializeField, Range(10, 100)]
     int resolution = 10;
 
-    Transform[] points;
+    Transform[] targets;
 
     public Vector3 singleDrop;
 
@@ -26,31 +26,31 @@ public class Graph : MonoBehaviour
         var position = Vector3.zero;
         var scale = Vector3.one * step;
 
-        points = new Transform[resolution];
-        for (int i = 0; i < points.Length; i++)
+        targets = new Transform[resolution];
+        for (int i = 0; i < targets.Length; i++)
         {
-            Transform point = Instantiate(pointPrefab);
+            Transform oneTarget = Instantiate(targetPrefab);
             position.x = (i + 0.5f) * step - 1f;
-            point.localPosition = position;
-            point.localScale = scale;
+            oneTarget.localPosition = position;
+            oneTarget.localScale = scale;
 
-            points[i] = point;
+            targets[i] = oneTarget;
 
-            point.SetParent(transform, false);
+            oneTarget.SetParent(transform, false);
         }
     }
 
     void Update()
     {
         float time = Time.time;
-        for (int i = 0; i < points.Length; i++)
+        for (int i = 0; i < targets.Length; i++)
         {
-            Transform point = points[i];
-            Vector3 position = point.localPosition;
+            Transform oneTarget = targets[i];
+            Vector3 position = oneTarget.localPosition;
             position.y = Mathf.Sin(Mathf.PI * (position.x + time));
-            point.localPosition = position;
+            oneTarget.localPosition = position;
 
-            singleDrop = points[2].position;
+            singleDrop = targets[2].position;
             //Debug.Log("singleDrop " + singleDrop);
         }
     }
