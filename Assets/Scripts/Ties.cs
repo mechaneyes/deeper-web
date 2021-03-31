@@ -29,7 +29,8 @@ public class Ties : MonoBehaviour
 
     public void Awake()
     {
-        //Sources sources.sources[1]
+        sources = FindObjectOfType<Sources>();
+        theLine = FindObjectOfType<Graph>();
     }
 
 
@@ -52,8 +53,10 @@ public class Ties : MonoBehaviour
 
 
 
-        sources = FindObjectOfType<Sources>();
-        Debug.Log("sourcesElements: " + sources.sources[0].localPosition);
+        //Debug.Log("sourcesElements: " + sources.sources[0].localPosition);
+
+        Debug.Log("theLine.singleDrop: " + theLine.singleDrop);
+
         //foreach (Transform t in fromSources.passSources)
         //for (int j = 0; j < sourcesElements.Length; j++)
         //{
@@ -77,11 +80,15 @@ public class Ties : MonoBehaviour
             //Transform source = ties[1];
             //Vector3 position = source.localPosition;
 
-            //con.SetPosition(0, sources[1].position);
+            //con.SetPosition(0, sources.sources[0].position);
             //con.SetPosition(1, theLine.singleDrop);
 
             ////singleDrop = t[i].position;
             //Debug.Log("source " + source);
         }
+
+        Debug.Log("theLine.singleDrop: " + theLine.singleDrop);
+        con.SetPosition(0, sources.sources[0].position);
+        con.SetPosition(1, theLine.singleDrop);
     }
 }
