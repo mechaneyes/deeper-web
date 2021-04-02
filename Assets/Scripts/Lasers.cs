@@ -11,14 +11,12 @@ using UnityEngine;
 public class Lasers : MonoBehaviour
 {
 
-    [SerializeField]
-    private Graph theLine;
 
     [SerializeField]
     public Sources sources;
 
-
-
+    [SerializeField]
+    private Graph targets;
 
     List<LineRenderer> laserList = new List<LineRenderer>();
 
@@ -29,14 +27,16 @@ public class Lasers : MonoBehaviour
     public void Awake()
     {
         sources = FindObjectOfType<Sources>();
-        theLine = FindObjectOfType<Graph>();
+        targets = FindObjectOfType<Graph>();
     }
+
+
 
 
 
     void Start()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < sources.sources.Length; i++)
         {
             GameObject oneLiner = new GameObject();
             oneLiner.AddComponent<LineRenderer>();
@@ -48,12 +48,31 @@ public class Lasers : MonoBehaviour
 
         }
 
-        Debug.Log("laserList " + laserList[0].startWidth);
-
-
-
+        //Debug.Log("laserList " + laserList[0].startWidth);
+        //Debug.Log("sources.sources.Length " + sources.sources.Length);
 
     }
+
+
+
+
+
+    void Update()
+    {
+        float time = Time.time;
+        for (int i = 0; i < sources.sources.Length; i++)
+        {
+            laserList[i].SetPosition(0, sources.sources[i].position);
+            laserList[i].SetPosition(1, targets.targets[i].position);
+        }
+
+        //laserList[0].SetPosition(0, sources.sources[0].position);
+        //laserList[0].SetPosition(1, theLine.singleDrop);
+    }
+
+
+
+
 
 
     // Inspiration
@@ -71,28 +90,4 @@ public class Lasers : MonoBehaviour
     //    lr.SetPosition(1, end);
     //    GameObject.Destroy(myLine, 0.01f);
     //}
-
-
-
-
-
-
-
-
-    void Update()
-    {
-        float time = Time.time;
-        for (int i = 0; i < 3; i++)
-        {
-            laserList[i].SetPosition(0, sources.sources[i].position);
-            laserList[i].SetPosition(1, theLine.singleDrop);
-        }
-
-        //laserList[0].SetPosition(0, sources.sources[0].position);
-        //laserList[0].SetPosition(1, theLine.singleDrop);
-
-        //Debug.Log("theLine.singleDrop: " + theLine.singleDrop);
-        //ln.SetPosition(0, sources.sources[0].position);
-        //ln.SetPosition(1, theLine.singleDrop);
-    }
 }

@@ -16,7 +16,7 @@ public class Graph : MonoBehaviour
     [SerializeField, Range(10, 100)]
     int resolution = 10;
 
-    Transform[] targets;
+    public Transform[] targets;
 
     public Vector3 singleDrop;
 
@@ -50,7 +50,7 @@ public class Graph : MonoBehaviour
             position.y = Mathf.Sin(Mathf.PI * (position.x + time));
             oneTarget.localPosition = position;
 
-            singleDrop = targets[2].position;
+            //singleDrop = targets[i].position;
             //Debug.Log("singleDrop " + singleDrop);
         }
     }
