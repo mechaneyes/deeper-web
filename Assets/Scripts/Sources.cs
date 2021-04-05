@@ -46,10 +46,10 @@ public class Sources : MonoBehaviour
             source.SetParent(transform, false);
         }
 
-        for (int j = 12; j < 24; j++)
+        for ((int i, int j) = (0, 12); j < 24; i++, j++)
         {
             Transform source = Instantiate(sourcePrefab);
-            position.x = (j + 0.5f) * step - 1f;
+            position.x = (i + 0.5f) * step - 1f;
             position.y = 2;
             position.z = -2;
             source.localPosition = position;
