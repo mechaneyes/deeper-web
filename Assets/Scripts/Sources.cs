@@ -30,8 +30,8 @@ public class Sources : MonoBehaviour
         var position = Vector3.zero;
         var scale = Vector3.one * step;
 
-        sources = new Transform[resolution];
-        for (int i = 0; i < sources.Length; i++)
+        sources = new Transform[24];
+        for (int i = 0; i < 12; i++)
         {
             Transform source = Instantiate(sourcePrefab);
             position.x = (i + 0.5f) * step - 1f;
@@ -41,6 +41,21 @@ public class Sources : MonoBehaviour
             source.localScale = scale;
 
             sources[i] = source;
+            //Debug.Log("sources.sources.sources " + sources[i].localPosition);
+
+            source.SetParent(transform, false);
+        }
+
+        for (int j = 12; j < 24; j++)
+        {
+            Transform source = Instantiate(sourcePrefab);
+            position.x = (j + 0.5f) * step - 1f;
+            position.y = 2;
+            position.z = -2;
+            source.localPosition = position;
+            source.localScale = scale;
+
+            sources[j] = source;
             //Debug.Log("sources.sources.sources " + sources[i].localPosition);
 
             source.SetParent(transform, false);

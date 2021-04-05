@@ -49,7 +49,7 @@ public class Lasers : MonoBehaviour
         }
 
         //Debug.Log("laserList " + laserList[0].startWidth);
-        //Debug.Log("sources.sources.Length " + sources.sources.Length);
+        Debug.Log("sources.sources.Length " + sources.sources.Length);
 
     }
 
@@ -60,10 +60,17 @@ public class Lasers : MonoBehaviour
     void Update()
     {
         float time = Time.time;
-        for (int i = 0; i < sources.sources.Length; i++)
+        //for (int i = 0; i < sources.sources.Length; i++)
+        for (int i = 0; i < 12; i++)
         {
             laserList[i].SetPosition(0, sources.sources[i].position);
             laserList[i].SetPosition(1, targets.targets[i].position);
+        }
+        for ((int i, int j) = (0, 12); j < 24; i++, j++)
+        {
+            laserList[j].SetPosition(0, sources.sources[j].position);
+            laserList[j].SetPosition(1, targets.targets[i].position);
+            Debug.Log("targets.targets[i].position " + targets.targets[i].position);
         }
 
         //laserList[0].SetPosition(0, sources.sources[0].position);
