@@ -47,14 +47,15 @@ public class Targets_01 : MonoBehaviour
     {
         while (true)
         {
-            bool looper = true;
-            yield return new WaitForSeconds(1);
-            targets[4].GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
-            looper = false;
-            looper = true;
-            yield return new WaitForSeconds(1);
-            targets[4].GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
-            looper = false;
+            //for (int i = 0; i < targets.Length; i++)
+            //{
+            //yield return new WaitForSeconds(Random.Range(0.01f, 0.1f));
+            yield return new WaitForSeconds(0.0005f);
+            targets[Random.Range(0, targets.Length)].GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+            //yield return new WaitForSeconds(Random.Range(0.01f, 0.1f));
+            yield return new WaitForSeconds(0.0055f);
+            targets[Random.Range(0, targets.Length)].GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+            //}
         }
     }
 
