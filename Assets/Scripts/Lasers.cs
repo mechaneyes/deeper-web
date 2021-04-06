@@ -16,7 +16,7 @@ public class Lasers : MonoBehaviour
     public Sources sources;
 
     [SerializeField]
-    private Graph targets;
+    private Targets_01 targets;
 
     List<LineRenderer> laserList = new List<LineRenderer>();
 
@@ -27,7 +27,7 @@ public class Lasers : MonoBehaviour
     public void Awake()
     {
         sources = FindObjectOfType<Sources>();
-        targets = FindObjectOfType<Graph>();
+        targets = FindObjectOfType<Targets_01>();
     }
 
 

@@ -19,7 +19,7 @@ public class Sources : MonoBehaviour
     private LineRenderer con;
 
     [SerializeField]
-    private Graph theLine;
+    private Targets_01 target;
 
 
 
@@ -60,6 +60,8 @@ public class Sources : MonoBehaviour
 
             source.SetParent(transform, false);
         }
+
+        target = FindObjectOfType<Targets_01>();
     }
 
 
@@ -71,7 +73,7 @@ public class Sources : MonoBehaviour
         //con.startWidth = 0.01f;
         //con.endWidth = 0.01f;
 
-        theLine = FindObjectOfType<Graph>();
+        //target = FindObjectOfType<Targets_01>();
     }
 
 
@@ -85,8 +87,8 @@ public class Sources : MonoBehaviour
         //Vector3 position = source.localPosition;
 
         //con.SetPosition(0, sources[6].position);
-        //con.SetPosition(1, theLine.singleDrop);
+        //con.SetPosition(1, target.singleDrop);
 
-        //Debug.Log("theLine.singleDrop " + theLine.singleDrop);
+        //Debug.Log("target.singleDrop " + target.singleDrop);
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
 // https://en.wikipedia.org/wiki/The_Raven_(Lou_Reed_album)
 
 
-public class Graph : MonoBehaviour
+public class Targets_01 : MonoBehaviour
 {
     [SerializeField]
     Transform targetPrefab = default;
