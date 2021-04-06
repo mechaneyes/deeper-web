@@ -24,8 +24,7 @@ public class Graph : MonoBehaviour
     {
         float step = 2f / resolution;
         var position = Vector3.zero;
-        //var scale = Vector3.one * step;
-        var scale = Vector3.one * 0.09f;
+        var scale = Vector3.one * step;
 
         targets = new Transform[resolution];
         for (int i = 0; i < targets.Length; i++)
@@ -33,7 +32,7 @@ public class Graph : MonoBehaviour
             Transform oneTarget = Instantiate(targetPrefab);
             position.x = (i + 0.5f) * step - 1f;
             oneTarget.localPosition = position;
-            oneTarget.localScale = scale;
+            oneTarget.localScale = scale / 2;
 
             targets[i] = oneTarget;
 
@@ -48,7 +47,11 @@ public class Graph : MonoBehaviour
         {
             Transform oneTarget = targets[i];
             Vector3 position = oneTarget.localPosition;
-            position.y = Mathf.Sin(Mathf.PI * (position.x + time));
+
+            //position.y = Mathf.Sin(Mathf.PI * (position.x + time));
+            // Dividing by 2 flattens the curve
+            position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
+
             oneTarget.localPosition = position;
 
             //singleDrop = targets[i].position;

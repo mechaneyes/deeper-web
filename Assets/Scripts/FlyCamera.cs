@@ -1,20 +1,20 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class FlyCamera : MonoBehaviour
 {
-    //https://gist.github.com/gunderson/d7f096bd07874f31671306318019d996#gistcomment-3440530
-
-
 
     /*
- Writen by Windexglow 11-13-10.  Use it, edit it, steal it I don't care.  
- Converted to C# 27-02-13 - no credit wanted.
- Simple flycam I made, since I couldn't find any others made public.  
- Made simple to use (drag and drop, done) for regular keyboard layout  
- wasd : basic movement
- shift : Makes camera accelerate
- space : Moves camera on X and Z axis only.  So camera doesn't gain any height*/
+     * https://gist.github.com/gunderson/d7f096bd07874f31671306318019d996#gistcomment-3440530
+    
+    Writen by Windexglow 11-13-10.  Use it, edit it, steal it I don't care.  
+    Converted to C# 27-02-13 - no credit wanted.
+    Simple flycam I made, since I couldn't find any others made public.  
+    Made simple to use (drag and drop, done) for regular keyboard layout  
+    wasd : basic movement
+    shift : Makes camera accelerate
+    space : Moves camera on X and Z axis only.  So camera doesn't gain any height*/
 
     // Docboy add vertical move and mouse button dependant 2020
 

@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8651750cd4ade42b59a5e2fdf9e38ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPrefab: {fileID: 6405230499538936418, guid: 95e0732648f52427d86eff7838a87160, type: 3}
+  targetPrefab: {fileID: 4145588603946118955, guid: e9c71f580725149858375b225335325a, type: 3}
   resolution: 12
   targets: []
   singleDrop: {x: 0, y: 0, z: 0}
@@ -549,10 +549,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 284c246261efc4ac6b5cd4b497ef9ca6, type: 3}
+  m_Script: {fileID: 11500000, guid: 32375fd23e6fd432ab116442c8f198f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainSpeed: 2
-  shiftAdd: 25
-  maxShift: 100
-  camSens: 0.15
+  shiftAdd: 250
+  maxShift: 1000
+  camSens: 0.25
+  lastMouse: {x: 255, y: 255, z: 255}
