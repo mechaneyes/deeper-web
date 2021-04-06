@@ -66,6 +66,11 @@ public class Sources : MonoBehaviour
 
     void Start()
     {
+        //connector = new GameObject();
+        //con = connector.AddComponent<LineRenderer>();
+        //con.startWidth = 0.01f;
+        //con.endWidth = 0.01f;
+
         theLine = FindObjectOfType<Graph>();
     }
 
