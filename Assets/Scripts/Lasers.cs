@@ -40,6 +40,7 @@ public class Lasers : MonoBehaviour
         {
             GameObject oneLiner = new GameObject();
             oneLiner.AddComponent<LineRenderer>();
+            oneLiner.GetComponent<LineRenderer>().material.SetColor("_Color", Color.red);
             LineRenderer lr = oneLiner.GetComponent<LineRenderer>();
             lr.startWidth = 0.01f;
             lr.endWidth = 0.01f;
@@ -49,7 +50,7 @@ public class Lasers : MonoBehaviour
         }
 
         //Debug.Log("laserList " + laserList[0].startWidth);
-        Debug.Log("sources.sources.Length " + sources.sources.Length);
+        //Debug.Log("sources.sources.Length " + sources.sources.Length);
 
     }
 

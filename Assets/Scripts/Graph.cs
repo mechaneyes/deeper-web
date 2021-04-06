@@ -24,7 +24,8 @@ public class Graph : MonoBehaviour
     {
         float step = 2f / resolution;
         var position = Vector3.zero;
-        var scale = Vector3.one * step;
+        //var scale = Vector3.one * step;
+        var scale = Vector3.one * 0.09f;
 
         targets = new Transform[resolution];
         for (int i = 0; i < targets.Length; i++)
