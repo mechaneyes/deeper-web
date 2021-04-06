@@ -48,7 +48,7 @@ public class Graph : MonoBehaviour
         {
             Transform oneTarget = targets[i];
             Vector3 position = oneTarget.localPosition;
-            position.y = Mathf.Sin(Mathf.PI * (position.x + time));
+            position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
             oneTarget.localPosition = position;
 
             //singleDrop = targets[i].position;
