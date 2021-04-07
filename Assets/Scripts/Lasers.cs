@@ -71,7 +71,7 @@ public class Lasers : MonoBehaviour
         {
             laserList[j].SetPosition(0, sources.sources[j].position);
             laserList[j].SetPosition(1, targets.targets[i].position);
-            Debug.Log("targets.targets[i].position " + targets.targets[i].position);
+            //Debug.Log("targets.targets[i].position " + targets.targets[i].position);
         }
 
         //laserList[0].SetPosition(0, sources.sources[0].position);

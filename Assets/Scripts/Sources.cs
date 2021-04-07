@@ -11,15 +11,10 @@ public class Sources : MonoBehaviour
     Transform sourcePrefab = default;
 
     [SerializeField, Range(10, 100)]
-    int resolution = 10;
+    int resolution = 20;
 
     public Transform[] sources;
-
-    private GameObject connector;
-    private LineRenderer con;
-
-    [SerializeField]
-    private Targets_01 target;
+    public Transform[] sourcesSides;
 
 
 
@@ -61,20 +56,37 @@ public class Sources : MonoBehaviour
             source.SetParent(transform, false);
         }
 
-        target = FindObjectOfType<Targets_01>();
+        SourcesSides(0, -2);
+        //SourcesSides(1, 2);
+    }
+
+
+
+
+    void SourcesSides(int why, int zee)
+    {
+        float step = 2f / resolution;
+        var position = Vector3.zero;
+        var scale = Vector3.one * step;
+
+
+        Transform source = Instantiate(sourcePrefab);
+        position.x = 0;
+        position.y = -1;
+        position.z = zee;
+        source.localPosition = position;
+        source.localScale = scale;
+
+        sourcesSides[why] = source;
+        //Debug.Log("sources.sources.sources " + sources[i].localPosition);
+
+        source.SetParent(transform, false);
     }
 
 
 
     void Start()
-    {
-        //connector = new GameObject();
-        //con = connector.AddComponent<LineRenderer>();
-        //con.startWidth = 0.01f;
-        //con.endWidth = 0.01f;
-
-        //target = FindObjectOfType<Targets_01>();
-    }
+    { }
 
 
 

@@ -40,7 +40,7 @@ public class Targets_01 : MonoBehaviour
             oneTarget.SetParent(transform, false);
         }
 
-        StartCoroutine(Flicker());
+        //StartCoroutine(Flicker());
     }
 
     IEnumerator Flicker()
@@ -73,7 +73,7 @@ public class Targets_01 : MonoBehaviour
             oneTarget.localPosition = position;
 
             //singleDrop = targets[i].position;
-            //Debug.Log("singleDrop " + singleDrop);
+            //Debug.Log("singleDrop " + position.y);
         }
 
         //InvokeRepeating("Flicker", 2.0f, 0.3f);
