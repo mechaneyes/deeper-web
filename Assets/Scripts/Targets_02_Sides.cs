@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargsLeft : MonoBehaviour
+public class Targets_02_Sides : MonoBehaviour
 {
     [SerializeField]
     Transform tsLeftPrefab = default;
@@ -10,17 +10,18 @@ public class TargsLeft : MonoBehaviour
     [SerializeField, Range(10, 100)]
     int resolution = 20;
 
-    public Transform[] tsLeft;
+    public Transform[] tSides;
 
 
     void Start()
     {
-        float step = 2f / resolution;
+        //float step = 2f / resolution;
+        float step = 2f / 10;
         var position = Vector3.zero;
         //var scale = Vector3.one * step;
         var scale = Vector3.one * 0.07f;
 
-        tsLeft = new Transform[resolution];
+        tSides = new Transform[resolution];
         for (int i = 0; i < 10; i++)
         {
             Transform oneTarget = Instantiate(tsLeftPrefab);
@@ -30,7 +31,7 @@ public class TargsLeft : MonoBehaviour
             oneTarget.localPosition = position;
             oneTarget.localScale = scale;
 
-            tsLeft[i] = oneTarget;
+            tSides[i] = oneTarget;
 
             oneTarget.SetParent(transform, false);
         }
@@ -44,7 +45,7 @@ public class TargsLeft : MonoBehaviour
             oneTarget.localPosition = position;
             oneTarget.localScale = scale;
 
-            tsLeft[j] = oneTarget;
+            tSides[j] = oneTarget;
 
             oneTarget.SetParent(transform, false);
 
@@ -62,10 +63,10 @@ public class TargsLeft : MonoBehaviour
             //{
             //yield return new WaitForSeconds(Random.Range(0.01f, 0.1f));
             yield return new WaitForSeconds(0.0005f);
-            tsLeft[Random.Range(0, tsLeft.Length)].GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+            tSides[Random.Range(0, tSides.Length)].GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
             //yield return new WaitForSeconds(Random.Range(0.01f, 0.1f));
             yield return new WaitForSeconds(0.0055f);
-            tsLeft[Random.Range(0, tsLeft.Length)].GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+            tSides[Random.Range(0, tSides.Length)].GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
             //}
         }
     }
@@ -75,7 +76,7 @@ public class TargsLeft : MonoBehaviour
         float time = Time.time;
         for (int i = 0; i < 10; i++)
         {
-            Transform oneTarget = tsLeft[i];
+            Transform oneTarget = tSides[i];
             Vector3 position = oneTarget.localPosition;
 
             //position.y = Mathf.Sin(Mathf.PI * (position.x + time));
@@ -88,7 +89,7 @@ public class TargsLeft : MonoBehaviour
 
         for (int i = 10; i < 20; i++)
         {
-            Transform oneTarget = tsLeft[i];
+            Transform oneTarget = tSides[i];
             Vector3 position = oneTarget.localPosition;
             position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
             oneTarget.localPosition = position;

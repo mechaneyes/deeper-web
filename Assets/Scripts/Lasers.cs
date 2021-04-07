@@ -16,9 +16,16 @@ public class Lasers : MonoBehaviour
     public Sources sources;
 
     [SerializeField]
+    public Sources sourcesSides;
+
+    [SerializeField]
     private Targets_01 targets;
 
+    [SerializeField]
+    private Targets_02_Sides tSides;
+
     List<LineRenderer> laserList = new List<LineRenderer>();
+    List<LineRenderer> laserListSides = new List<LineRenderer>();
 
 
 
@@ -27,7 +34,9 @@ public class Lasers : MonoBehaviour
     public void Awake()
     {
         sources = FindObjectOfType<Sources>();
+        sourcesSides = FindObjectOfType<Sources>();
         targets = FindObjectOfType<Targets_01>();
+        tSides = FindObjectOfType<Targets_02_Sides>();
     }
 
 
@@ -49,8 +58,22 @@ public class Lasers : MonoBehaviour
 
         }
 
-        //Debug.Log("laserList " + laserList[0].startWidth);
-        //Debug.Log("sources.sources.Length " + sources.sources.Length);
+        for (int i = 0; i < tSides.tSides.Length; i++)
+        {
+            GameObject oneLiner = new GameObject();
+            oneLiner.AddComponent<LineRenderer>();
+            oneLiner.GetComponent<LineRenderer>().material.SetColor("_Color", Color.green);
+            LineRenderer lr = oneLiner.GetComponent<LineRenderer>();
+            lr.startWidth = 0.01f;
+            lr.endWidth = 0.01f;
+
+            laserListSides.Add(lr);
+
+            //Debug.Log("laserListSides " + laserListSides);
+
+        }
+
+        //Debug.Log("sourcesSides " + sourcesSides.sourcesSides.Length);
 
     }
 
@@ -72,6 +95,18 @@ public class Lasers : MonoBehaviour
             laserList[j].SetPosition(0, sources.sources[j].position);
             laserList[j].SetPosition(1, targets.targets[i].position);
             //Debug.Log("targets.targets[i].position " + targets.targets[i].position);
+        }
+
+        for (int i = 0; i < 12; i++)
+        {
+            laserListSides[i].SetPosition(0, sourcesSides.sourcesSides[0].position);
+            laserListSides[i].SetPosition(1, tSides.tSides[i].position);
+        }
+
+        for (int i = 10; i < 20; i++)
+        {
+            laserListSides[i].SetPosition(0, sourcesSides.sourcesSides[1].position);
+            laserListSides[i].SetPosition(1, tSides.tSides[i].position);
         }
 
         //laserList[0].SetPosition(0, sources.sources[0].position);

@@ -56,14 +56,15 @@ public class Sources : MonoBehaviour
             source.SetParent(transform, false);
         }
 
-        SourcesSides(0, -2);
-        //SourcesSides(1, 2);
+        sourcesSides = new Transform[2];
+        SourcesSides(0, -2f);
+        SourcesSides(1, 2f);
     }
 
 
 
 
-    void SourcesSides(int why, int zee)
+    void SourcesSides(int arrLoc, float zee)
     {
         float step = 2f / resolution;
         var position = Vector3.zero;
@@ -71,14 +72,15 @@ public class Sources : MonoBehaviour
 
 
         Transform source = Instantiate(sourcePrefab);
+        source.GetComponent<Renderer>().material.color = Color.cyan;
         position.x = 0;
         position.y = -1;
         position.z = zee;
         source.localPosition = position;
         source.localScale = scale;
 
-        sourcesSides[why] = source;
-        //Debug.Log("sources.sources.sources " + sources[i].localPosition);
+        sourcesSides[arrLoc] = source;
+        //Debug.Log("sourcesSides[arrLoc] " + arrLoc);
 
         source.SetParent(transform, false);
     }
