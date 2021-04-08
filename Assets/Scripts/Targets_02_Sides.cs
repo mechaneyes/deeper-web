@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//https://soundcloud.com/dfp/dimitri-from-paris
+//it's that time of year again
+
 public class Targets_02_Sides : MonoBehaviour
 {
     [SerializeField]
@@ -11,7 +14,7 @@ public class Targets_02_Sides : MonoBehaviour
     int resolution = 20;
 
     public Transform[] tSides;
-
+    public Color colorSides;
 
     void Start()
     {
@@ -84,15 +87,41 @@ public class Targets_02_Sides : MonoBehaviour
             position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
             oneTarget.localPosition = position;
 
+            Color c = oneTarget.GetComponent<MeshRenderer>().material.color;
+
+            c.r = 0f;
+            //c.g = Mathf.Sin(Mathf.PI * (position.y + time)) / 2;
+            //c.b = Mathf.Sin(Mathf.PI * (position.y + time)) / 2;
+            //c.g = j;
+            //c.b = j;
+            c.g = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
+            c.b = Mathf.Sin(Mathf.PI * (position.x + time) / 2) + 1;
+
+            oneTarget.GetComponent<MeshRenderer>().material.color = c;
+
             //Debug.Log("singleDrop " + position.y);
         }
 
-        for (int i = 10; i < 20; i++)
+        //for (int j = 20; j < 255; j++)
+        for ((int i, int j) = (10, 10); i < 20; i++, j += 20)
         {
             Transform oneTarget = tSides[i];
             Vector3 position = oneTarget.localPosition;
             position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
             oneTarget.localPosition = position;
+
+            Color c = oneTarget.GetComponent<MeshRenderer>().material.color;
+
+            c.r = 0f;
+            c.g = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
+            c.b = Mathf.Sin(Mathf.PI * (position.x + time) / 2) + 1;
+
+            oneTarget.GetComponent<MeshRenderer>().material.color = c;
+
+            colorSides = c;
+
+            Debug.Log("position.y: " + position.y * 100);
+            //Debug.Log("j " + j);
         }
 
         //InvokeRepeating("Flicker", 2.0f, 0.3f);

@@ -18,6 +18,13 @@ public class Targets_01 : MonoBehaviour
 
     public Transform[] targets;
 
+    private ColorFader colorFader;
+
+    void Awake()
+    {
+        colorFader = GetComponent<ColorFader>();
+    }
+
 
     void Start()
     {
@@ -41,6 +48,8 @@ public class Targets_01 : MonoBehaviour
         }
 
         //StartCoroutine(Flicker());
+        //Debug.Log("fadingSpeed: " + colorFader.fadingSpeed);
+
     }
 
     IEnumerator Flicker()
