@@ -25,6 +25,9 @@ public class Lasers : MonoBehaviour
     private Targets_02_Sides tSides;
 
     [SerializeField]
+    private Targets_01 colorCenter;
+
+    [SerializeField]
     private Targets_02_Sides colorSides;
 
     List<LineRenderer> laserList = new List<LineRenderer>();
@@ -40,6 +43,7 @@ public class Lasers : MonoBehaviour
         sourcesSides = FindObjectOfType<Sources>();
         targets = FindObjectOfType<Targets_01>();
         tSides = FindObjectOfType<Targets_02_Sides>();
+        colorCenter = FindObjectOfType<Targets_01>();
         colorSides = FindObjectOfType<Targets_02_Sides>();
     }
 
@@ -53,7 +57,7 @@ public class Lasers : MonoBehaviour
         {
             GameObject oneLiner = new GameObject();
             oneLiner.AddComponent<LineRenderer>();
-            oneLiner.GetComponent<LineRenderer>().material.SetColor("_Color", Color.red);
+            oneLiner.GetComponent<LineRenderer>().material.SetColor("_Color", colorCenter.colorCenter);
             LineRenderer lr = oneLiner.GetComponent<LineRenderer>();
             lr.startWidth = 0.01f;
             lr.endWidth = 0.01f;
@@ -73,7 +77,7 @@ public class Lasers : MonoBehaviour
 
             laserListSides.Add(lr);
 
-            //Debug.Log("laserListSides " + laserListSides);
+            Debug.Log("colorSides " + colorCenter);
 
         }
 
@@ -91,6 +95,7 @@ public class Lasers : MonoBehaviour
         //for (int i = 0; i < sources.sources.Length; i++)
         for (int i = 0; i < 12; i++)
         {
+            laserListSides[i].GetComponent<LineRenderer>().material.SetColor("_Color", colorCenter.colorCenter);
             laserList[i].SetPosition(0, sources.sources[i].position);
             laserList[i].SetPosition(1, targets.targets[i].position);
         }

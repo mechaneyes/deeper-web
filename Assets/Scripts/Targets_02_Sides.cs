@@ -120,7 +120,7 @@ public class Targets_02_Sides : MonoBehaviour
 
             colorSides = c;
 
-            Debug.Log("position.y: " + position.y * 100);
+            //Debug.Log("position.y: " + position.y * 100);
             //Debug.Log("j " + j);
         }
 

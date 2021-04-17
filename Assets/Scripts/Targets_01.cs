@@ -19,6 +19,7 @@ public class Targets_01 : MonoBehaviour
     public Transform[] targets;
 
     private ColorFader colorFader;
+    public Color colorCenter;
 
     void Awake()
     {
@@ -37,7 +38,8 @@ public class Targets_01 : MonoBehaviour
         for (int i = 0; i < targets.Length; i++)
         {
             Transform oneTarget = Instantiate(targetPrefab);
-            oneTarget.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+            Color c = new Color(1.0f, 0.6f, 0.1f);
+            oneTarget.GetComponent<MeshRenderer>().material.color = c;
             position.x = (i + 0.5f) * step - 1f;
             oneTarget.localPosition = position;
             oneTarget.localScale = scale;
@@ -45,6 +47,8 @@ public class Targets_01 : MonoBehaviour
             targets[i] = oneTarget;
 
             oneTarget.SetParent(transform, false);
+
+            colorCenter = c;
         }
 
         //StartCoroutine(Flicker());
