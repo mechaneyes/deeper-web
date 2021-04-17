@@ -82,7 +82,7 @@ public class Targets_01 : MonoBehaviour
 
             //position.y = Mathf.Sin(Mathf.PI * (position.x + time));
             // Dividing by 2 flattens the curve
-            position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
+            position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 3);
             oneTarget.localPosition = position;
 
             //singleDrop = targets[i].position;

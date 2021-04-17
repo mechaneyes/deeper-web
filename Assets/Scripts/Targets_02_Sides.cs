@@ -29,7 +29,7 @@ public class Targets_02_Sides : MonoBehaviour
         {
             Transform oneTarget = Instantiate(tsLeftPrefab);
             oneTarget.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
-            position.x = (i + 0.5f) * step - 1f;
+            position.x = (i + 2.5f) * step - 1f;
             position.z = -1;
             oneTarget.localPosition = position;
             oneTarget.localScale = scale;
@@ -43,7 +43,8 @@ public class Targets_02_Sides : MonoBehaviour
         {
             Transform oneTarget = Instantiate(tsLeftPrefab);
             oneTarget.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
-            position.x = (i + 0.5f) * step - 1f;
+            //position.x = (i + 0.5f) * step - 1f;
+            position.x = (i + 1f) * step - 1f;
             position.z = 1;
             oneTarget.localPosition = position;
             oneTarget.localScale = scale;
@@ -83,8 +84,11 @@ public class Targets_02_Sides : MonoBehaviour
             Vector3 position = oneTarget.localPosition;
 
             //position.y = Mathf.Sin(Mathf.PI * (position.x + time));
-            // Dividing by 2 flattens the curve
-            position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
+
+            // ————————————————————————————————————o BIKINIS -->
+            // Number dividing by changes speed of wave
+            //
+            position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 3);
             oneTarget.localPosition = position;
 
             Color c = oneTarget.GetComponent<MeshRenderer>().material.color;
@@ -107,7 +111,7 @@ public class Targets_02_Sides : MonoBehaviour
         {
             Transform oneTarget = tSides[i];
             Vector3 position = oneTarget.localPosition;
-            position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 2);
+            position.y = Mathf.Sin(Mathf.PI * (position.x + time) / 3);
             oneTarget.localPosition = position;
 
             Color c = oneTarget.GetComponent<MeshRenderer>().material.color;

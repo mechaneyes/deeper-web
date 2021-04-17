@@ -30,8 +30,8 @@ public class Sources : MonoBehaviour
         {
             Transform source = Instantiate(sourcePrefab);
             position.x = (i + 0.5f) * step - 1f;
-            position.y = 2;
-            position.z = 2;
+            position.y = 6;
+            position.z = 6;
             source.localPosition = position;
             source.localScale = scale;
 
@@ -45,8 +45,8 @@ public class Sources : MonoBehaviour
         {
             Transform source = Instantiate(sourcePrefab);
             position.x = (i + 0.5f) * step - 1f;
-            position.y = 2;
-            position.z = -2;
+            position.y = 6;
+            position.z = -6;
             source.localPosition = position;
             source.localScale = scale;
 
@@ -57,8 +57,8 @@ public class Sources : MonoBehaviour
         }
 
         sourcesSides = new Transform[2];
-        SourcesSides(0, -2f);
-        SourcesSides(1, 2f);
+        SourcesSides(0, -4f);
+        SourcesSides(1, 4f);
     }
 
 
@@ -74,7 +74,7 @@ public class Sources : MonoBehaviour
         Transform source = Instantiate(sourcePrefab);
         source.GetComponent<Renderer>().material.color = Color.cyan;
         position.x = 0;
-        position.y = -1;
+        position.y = 1;
         position.z = zee;
         source.localPosition = position;
         source.localScale = scale;
