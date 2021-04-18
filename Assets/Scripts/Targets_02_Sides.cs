@@ -9,7 +9,7 @@ using TheTargets;
 public class Targets_02_Sides : MonoBehaviour
 {
     [SerializeField]
-    Transform tsLeftPrefab = default;
+    Transform targetPrefab = default;
 
     //[SerializeField, Range(10, 100)]
     //int resolution = 20;
@@ -17,7 +17,7 @@ public class Targets_02_Sides : MonoBehaviour
     //public Transform[] tSides;
     //public Color colorSides;
 
-    private Target leftTarget;
+    private Target sideTarget;
 
     void Start()
     {
@@ -43,12 +43,12 @@ public class Targets_02_Sides : MonoBehaviour
 
         for (int i = 0; i < 10; i++)
         {
-            leftTarget = new Target(tsLeftPrefab, i, -1);
+            sideTarget = new Target(targetPrefab, i, -1);
         }
 
         for (int i = 0; i < 10; i++)
         {
-            leftTarget = new Target(tsLeftPrefab, i, 1);
+            sideTarget = new Target(targetPrefab, i, 1);
         }
 
         //for ((int i, int j) = (0, 10); j < 20; i++, j++)
